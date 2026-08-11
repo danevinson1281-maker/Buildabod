@@ -8,7 +8,7 @@ const PlanSelectorBar = ({ selectedPlan, onPlanChange }) => {
       name: 'Kickstart',
       id: 'kickstart',
       price: 67, // ✅ UPDATED from 50
-      priceId: 'price_1U34LHHuCdpMAfMSqX1oNlZJ',
+      priceId: 'price_1U37oFQVIGuBoBPoMbkMbBPM',
       billing: 'one-time',
       description: '7-day trial, then one-time payment',
       popular: false,
@@ -17,7 +17,7 @@ const PlanSelectorBar = ({ selectedPlan, onPlanChange }) => {
       name: 'Pro',
       id: 'pro',
       price: 127, // ✅ UPDATED from 97
-      priceId: 'price_1U34OnHuCdpMAfMS8NUC9xQR',
+      priceId: 'price_1U37ofQVIGuBoBPoEJYglWcE',
       billing: '/month',
       description: 'Monthly coaching + unlimited tools',
       popular: true,
@@ -26,7 +26,7 @@ const PlanSelectorBar = ({ selectedPlan, onPlanChange }) => {
       name: 'Elite',
       id: 'elite',
       price: 197, // ✅ UPDATED from 167
-      priceId: 'price_1U34PwHuCdpMAfMSAg5qfhC1',
+      priceId: 'price_1U37ovQVIGuBoBPoKxx3Khud',
       billing: '/month',
       description: 'Weekly coaching + priority access',
       popular: false,
