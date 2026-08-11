@@ -67,7 +67,7 @@ export async function POST(request) {
       ];
     } else if (normalizedPlan === 'pro') {
       amount = 12700; // ✅ Updated: $127/mo (was $97)
-      const proPriceId = 'price_1U34OnHuCdpMAfMS8NUC9xQR'; // ✅ New Stripe Price ID
+      const proPriceId = 'price_1U37ofQVIGuBoBPoEJYglWcE'; // ✅ New Stripe Price ID
       console.log('📋 Pro Price ID:', proPriceId);
       if (!proPriceId) {
         console.log('❌ Missing Pro Price ID');
@@ -79,7 +79,7 @@ export async function POST(request) {
       lineItems = [{ price: proPriceId, quantity: 1 }];
     } else if (normalizedPlan === 'elite') {
       amount = 19700; // ✅ Updated: $197/mo (was $167)
-      const elitePriceId = 'price_1U34PwHuCdpMAfMSAg5qfhC1'; // ✅ New Stripe Price ID
+      const elitePriceId = 'price_1U37ovQVIGuBoBPoKxx3Khud'; // ✅ New Stripe Price ID
       console.log('📋 Elite Price ID:', elitePriceId);
       if (!elitePriceId) {
         console.log('❌ Missing Elite Price ID');
