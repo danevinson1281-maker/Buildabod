@@ -1,0 +1,356 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.accordionModal {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  padding: 28px 32px;
+  border-bottom: 1px solid #222;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #FFD700;
+  margin: 0 0 6px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+/* Scrollable Container */
+.accordionContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+}
+
+.accordionContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.accordionContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.accordionContainer::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 3px;
+}
+
+.accordionContainer::-webkit-scrollbar-thumb:hover {
+  background: #FFC700;
+}
+
+/* Photo Consent Section */
+.photoConsentSection {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #FFD700;
+}
+
+.photoConsentHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.photoIcon {
+  font-size: 24px;
+}
+
+.photoConsentTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFD700;
+  margin: 0;
+}
+
+.photoConsentBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #0f0f0f;
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: #FFD700;
+  flex-shrink: 0;
+}
+
+.consentText {
+  font-size: 13px;
+  color: #ccc;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.consentText strong {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+/* Accordion Sections */
+.accordionSections {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.accordionItem {
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #0f0f0f;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.accordionItem:hover {
+  border-color: #FFD700;
+  background: #151515;
+}
+
+.accordionButton {
+  width: 100%;
+  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.accordionButton:hover {
+  background: rgba(255, 215, 0, 0.05);
+  color: #FFD700;
+}
+
+.accordionTitle {
+  text-align: left;
+  flex: 1;
+}
+
+.accordionIcon {
+  color: #FFD700;
+  font-size: 12px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.accordionContent {
+  padding: 16px;
+  background: #1a1a1a;
+  border-top: 1px solid #333;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #ccc;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.accordionContent p {
+  margin: 8px 0;
+}
+
+.accordionContent p:first-child {
+  margin-top: 0;
+}
+
+.accordionContent p:last-child {
+  margin-bottom: 0;
+}
+
+.spacer {
+  height: 4px !important;
+  margin: 4px 0 !important;
+}
+
+/* Signature Section */
+.signatureSection {
+  padding: 20px 0;
+  border-top: 1px solid #222;
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: #FFD700;
+  margin-bottom: 10px;
+}
+
+.input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #0f0f0f;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #FFD700;
+  background: #151515;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+/* Footer */
+.footer {
+  padding: 20px 32px;
+  border-top: 1px solid #222;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #0f0f0f;
+  flex-shrink: 0;
+}
+
+.acceptBtn {
+  width: 100%;
+  padding: 13px;
+  background: #FFD700;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.acceptBtn:hover:not(:disabled) {
+  background: #FFC700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.acceptBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.note {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .accordionModal {
+    max-height: 95vh;
+    max-width: 95vw;
+  }
+
+  .header {
+    padding: 20px 24px;
+  }
+
+  .accordionContainer {
+    padding: 18px 24px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .accordionButton {
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .accordionContent {
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .footer {
+    padding: 16px 24px;
+  }
+
+  .acceptBtn {
+    padding: 12px;
+    font-size: 13px;
+  }
+}

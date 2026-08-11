@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-};
+  images: {
+    unoptimized: true,
+  },
+  serverExternalPackages: ['pdfkit'],
+  allowedDevOrigins: ['192.168.1.188'],
+}
 
-export default nextConfig;
+export default nextConfig
