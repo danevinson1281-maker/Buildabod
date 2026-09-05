@@ -110,10 +110,11 @@ export async function POST(request) {
     const newReferralCode = await generateUniqueReferralCode();
     console.log('🎁 Generated referral code:', newReferralCode);
 
-    // ── Create client record ──────────────────────────────────────────────
+    // ── Create or update client record ──────────────────────────────────────────────
+// ✅ Use UPSERT so returning users can retry (matching on email)
 const { data: clientData, error: clientError } = await supabase
   .from('clients')
-  .insert([
+  .upsert(
     {
       full_name: `${firstName} ${lastName}`,
       email,
@@ -134,23 +135,21 @@ const { data: clientData, error: clientError } = await supabase
       cooking_methods: cookingMethods && cookingMethods.length > 0 ? JSON.stringify(cookingMethods) : null,
       selected_foods: selectedFoods ? JSON.stringify(selectedFoods) : null,
       plan_type: planType || null,
-
-      // ✅ FIX: Set Kickstart upgrade window (7 days from purchase)
       ...(planType === 'kickstart' && {
         kickstart_purchased_at: new Date().toISOString(),
         kickstart_upgrade_expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
       }),
-
       photo_consent: validPhotoConsent,
-      referral_code: newReferralCode,
       referred_by: referralCode || null,
       payment_status: 'pending',
-      created_at: new Date().toISOString(),
+      client_status: 'intake_pending',
       updated_at: new Date().toISOString(),
     },
-  ])
+    { onConflict: 'email' } // ✅ Match on email, update if exists
+  )
   .select()
   .single();
+
 
 
     if (clientError) {
