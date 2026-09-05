@@ -149,34 +149,36 @@ export default function AdminClientsPage() {
   }
 
   const calculateStats = (clientList) => {
-    // Pending: payment complete but plan not approved yet
-    const pending = clientList.filter(c => 
-      c.payment_status === 'completed' && !c.plan_approved_at
-    )
-    
-    // Approved: payment complete and plan approved
-    const approved = clientList.filter(c => 
-      c.payment_status === 'completed' && c.plan_approved_at
-    )
-    
-    // Active subscriptions: anyone with completed payment (currently active)
-    const subscriptions = clientList.filter(c => c.payment_status === 'completed')
-    
-    // Revenue calculation
-    let revenue = 0
-    clientList.forEach(c => {
-      if (c.plan_type === 'pro') revenue += 127
-      if (c.plan_type === 'elite') revenue += 197
-      if (c.plan_type === 'kickstart' || c.plan_type === 'kickstart') revenue += 67
-    })
-    
-    setStats({
-      pendingApproval: pending.length,
-      approvedClients: approved.length,
-      totalRevenue: revenue,
-      activeSubscriptions: subscriptions.length,
-    })
-  }
+  // Pending: payment complete but plan not approved yet (exclude demos)
+  const pending = clientList.filter(c => 
+    c.payment_status === 'completed' && !c.plan_approved_at && !c.is_demo
+  )
+  
+  // Approved: payment complete and plan approved (exclude demos)
+  const approved = clientList.filter(c => 
+    c.payment_status === 'completed' && c.plan_approved_at && !c.is_demo
+  )
+  
+  // Active subscriptions: anyone with completed payment (exclude demos)
+  const subscriptions = clientList.filter(c => c.payment_status === 'completed' && !c.is_demo)
+  
+  // Revenue calculation (exclude demos)
+  let revenue = 0
+  clientList.forEach(c => {
+    if (c.is_demo) return; // ✅ Skip demo clients
+    if (c.plan_type === 'pro') revenue += 127
+    if (c.plan_type === 'elite') revenue += 197
+    if (c.plan_type === 'kickstart' || c.plan_type === 'kickstart') revenue += 67
+  })
+  
+  setStats({
+    pendingApproval: pending.length,
+    approvedClients: approved.length,
+    totalRevenue: revenue,
+    activeSubscriptions: subscriptions.length,
+  })
+}
+
 
   const formatHeight = (client) => {
     const inches = parseInt(client.height) || null
