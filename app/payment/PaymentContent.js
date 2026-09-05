@@ -146,7 +146,7 @@ function PaymentFormContent({ planType, clientId, clientEmail, clientName, intak
           }}
         >
           <p className="text-green-300 font-bold text-sm">
-            ✅ Your $50 credit is applied! Complete your upgrade below.
+            ✅ Your $67 credit is applied! Complete your upgrade below.
           </p>
         </div>
       )}
@@ -163,7 +163,7 @@ function PaymentFormContent({ planType, clientId, clientEmail, clientName, intak
             </p>
             {isUpgrade && (
               <p className="text-xs text-green-400 font-bold mt-1">
-                Save $50 with credit
+                Save $67 with credit
               </p>
             )}
           </div>

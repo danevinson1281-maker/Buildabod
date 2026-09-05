@@ -611,7 +611,7 @@ export default function ClientSubscriptionCard({ client, onActionComplete }) {
                 cursor: 'pointer',
               }}
             >
-              PRO ($97/mo)
+              PRO ($127/mo)
             </button>
           </div>
           <div style={{ display: 'flex', gap: '8px' }}>

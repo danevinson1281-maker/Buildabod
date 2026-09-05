@@ -185,7 +185,7 @@ className="w-full h-full object-contain object-top"                  onError={(e
                       </p>
                     </div>
                   </div>
-                ) : subscriptionTier === 'basic' ? (
+                ) : subscriptionTier === 'kickstart' ? (
                   <div className="mt-4 pt-4 border-t border-yellow-700/20">
                     <div className="flex items-start gap-2">
                       <span className="text-lg">✨</span>

@@ -389,7 +389,7 @@ export async function POST(request) {
         // ── Footer on last page ───────────────────────────────────────────
         doc.fontSize(7).font('Helvetica').fillColor('#333333')
           .text(
-`BuildABod © 2026–${new Date().getFullYear()}| Personalized Nutrition by Dane Vinson`,
+`BuildABod © 2026–${new Date().getFullYear()}| Custom Nutrition by Dane Vinson`,
             0, PAGE_HEIGHT - 15, { align: 'center', width: PAGE_WIDTH }
           );
 

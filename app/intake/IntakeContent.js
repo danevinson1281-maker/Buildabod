@@ -156,7 +156,7 @@ useEffect(() => {
     const stored = localStorage.getItem('selectedPlanType');
     console.log('🔄 Syncing plan from storage:', stored);
     if (stored) {
-      const planId = stored === 'basic' ? 'kickstart' : stored;
+      const planId = stored === 'kickstart' ? 'kickstart' : stored;
       console.log('✅ Setting planType to:', planId);
       setFormData(prev => ({ ...prev, planType: planId }));
     }

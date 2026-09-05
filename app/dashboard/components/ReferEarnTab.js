@@ -335,10 +335,11 @@ export default function ReferEarnTab({ clientId, clientName }) {
         </h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {[
-            { num: '1', text: 'Share your referral code with friends & family' },
-            { num: '2', text: 'They sign up using your code and make their first payment' },
-            { num: '3', text: 'You automatically get $40 in reward credits' },
-            { num: '4', text: 'Apply credits toward your upgrade or next billing cycle — credits expire in 6 months'},
+  { num: '1', text: 'Share your referral code with friends & family' },
+  { num: '2', text: 'They sign up using your code and make their first payment' },
+  { num: '3', text: 'You automatically get $40 in reward credits (valid for 6 months)' },
+  { num: '4', text: 'Apply your credits toward your next upgrade or billing cycle — or gift them to friends before they expire'},
+
           ].map(step => (
             <div key={step.num} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
               <span style={{

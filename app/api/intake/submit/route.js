@@ -111,46 +111,47 @@ export async function POST(request) {
     console.log('🎁 Generated referral code:', newReferralCode);
 
     // ── Create client record ──────────────────────────────────────────────
-    const { data: clientData, error: clientError } = await supabase
-      .from('clients')
-      .insert([
-        {
-          full_name: `${firstName} ${lastName}`,
-          email,
-          phone: phone || null,
-          age: parseInt(age),
-          gender,
-          height: parseInt(heightInches),
-          current_weight: parseFloat(currentWeight),
-          goal_weight: parseFloat(goalWeight),
-          primary_goal: primaryGoal,
-          experience_level: experienceLevel,
-          activity_level: activityLevel,
-          cardio_duration: cardioPreference || null,
-          meals_per_day: parseInt(mealsPerDay),
-          meal_pattern: meal_pattern || 'balanced',
-          dietary_restrictions: dietaryType || 'omnivore',
-          allergies: allergies && allergies.length > 0 ? JSON.stringify(allergies) : null,
-          cooking_methods: cookingMethods && cookingMethods.length > 0 ? JSON.stringify(cookingMethods) : null,
-          selected_foods: selectedFoods ? JSON.stringify(selectedFoods) : null,
-          plan_type: planType || null,
+const { data: clientData, error: clientError } = await supabase
+  .from('clients')
+  .insert([
+    {
+      full_name: `${firstName} ${lastName}`,
+      email,
+      phone: phone || null,
+      age: parseInt(age),
+      gender,
+      height: parseInt(heightInches),
+      current_weight: parseFloat(currentWeight),
+      goal_weight: parseFloat(goalWeight),
+      primary_goal: primaryGoal,
+      experience_level: experienceLevel,
+      activity_level: activityLevel,
+      cardio_duration: cardioPreference || null,
+      meals_per_day: parseInt(mealsPerDay),
+      meal_pattern: meal_pattern || 'balanced',
+      dietary_restrictions: dietaryType || 'omnivore',
+      allergies: allergies && allergies.length > 0 ? JSON.stringify(allergies) : null,
+      cooking_methods: cookingMethods && cookingMethods.length > 0 ? JSON.stringify(cookingMethods) : null,
+      selected_foods: selectedFoods ? JSON.stringify(selectedFoods) : null,
+      plan_type: planType || null,
 
-          // ✅ FIX: Set Kickstart upgrade window (7 days from purchase)
-          ...(planType === 'kickstart' && {
-            kickstart_purchased_at: new Date().toISOString(),
-            kickstart_upgrade_expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
-          }),
+      // ✅ FIX: Set Kickstart upgrade window (7 days from purchase)
+      ...(planType === 'kickstart' && {
+        kickstart_purchased_at: new Date().toISOString(),
+        kickstart_upgrade_expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+      }),
 
-          photo_consent: validPhotoConsent,
-          referral_code: newReferralCode,
-          referred_by: referralCode || null,
-          payment_status: 'pending',
-          created_at: new Date().toISOString(),
-          updated_at: new Date().toISOString(),
-        },
-      ])
-      .select()
-      .single();
+      photo_consent: validPhotoConsent,
+      referral_code: newReferralCode,
+      referred_by: referralCode || null,
+      payment_status: 'pending',
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    },
+  ])
+  .select()
+  .single();
+
 
     if (clientError) {
       console.error('❌ SUPABASE ERROR:', {

@@ -67,7 +67,7 @@ export async function POST(request) {
             </a>
 
             <p style="color: #666; font-size: 12px; margin: 0; text-align: center;">
-              BuildABod | Personalized Nutrition by Dane Vinson
+              BuildABod | Custom Nutrition by Dane Vinson
             </p>
           </div>
         `,

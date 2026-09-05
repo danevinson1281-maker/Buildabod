@@ -85,7 +85,7 @@ export async function POST(request) {
           photo_url: photoUrl,  // ← Now using signed URL
           storage_key: fileName,
           week_number: weekNumber,
-          tier_at_upload: clientData?.plan_type || 'basic',
+          tier_at_upload: clientData?.plan_type || 'kickstart',
           dane_feedback: null,
           dane_feedback_at: null,
         },

@@ -3,7 +3,7 @@ import Stripe from 'stripe'
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 const PRICE_IDS = {
-  basic: 'price_1TTt1rHuCdpMAfMS5cjWPtuz',
+  kickstart: 'price_1TTt1rHuCdpMAfMS5cjWPtuz',
   pro: 'price_1TTt2qHuCdpMAfMS7YrWnyWJ',
   elite: 'price_1TTt3FHuCdpMAfMSfEbbqZQz',
 }

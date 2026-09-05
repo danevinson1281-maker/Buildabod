@@ -56,7 +56,7 @@ export default function SubscriptionGuard({ client, children }) {
                 fontSize: '16px',
               }}
             >
-              🚀 Upgrade to Pro — $97/mo
+              🚀 Upgrade to Pro — $127/mo
             </Link>
             <Link
               href={`/payment?clientId=${client.id}&plan=kickstart&extend=true`}
@@ -72,7 +72,7 @@ export default function SubscriptionGuard({ client, children }) {
                 fontSize: '16px',
               }}
             >
-              🔄 Extend Kickstart — $50
+              🔄 Extend Kickstart — $67
             </Link>
             <a
               href="mailto:dane@buildabod.co"
@@ -191,7 +191,7 @@ export default function SubscriptionGuard({ client, children }) {
                   whiteSpace: 'nowrap',
                 }}
               >
-                Extend $50
+                Extend $67
               </Link>
             </div>
           )}

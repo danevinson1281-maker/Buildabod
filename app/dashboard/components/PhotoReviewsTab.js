@@ -306,7 +306,7 @@ export default function PhotoReviewsTab() {
 
   const getTierBadgeColor = (tier) => {
     switch (tier) {
-      case 'basic':
+      case 'kickstart':
         return 'bg-gray-500/20 text-gray-400 border-gray-700';
       case 'pro':
         return 'bg-blue-500/20 text-blue-400 border-blue-700';
@@ -369,7 +369,7 @@ export default function PhotoReviewsTab() {
               className="w-full px-4 py-2 bg-gray-800 border border-yellow-700/30 rounded-lg text-white focus:outline-none focus:border-yellow-500"
             >
               <option value="all">All Tiers</option>
-              <option value="basic">Basic</option>
+              <option value="kickstart">Kickstart</option>
               <option value="pro">Pro</option>
               <option value="elite">Elite</option>
             </select>
@@ -550,8 +550,8 @@ export default function PhotoReviewsTab() {
                   <div>
                     <h4 className="text-white font-bold mb-2">Feedback</h4>
                     <p className="text-gray-400 text-sm mb-2">
-                      {selectedPhoto.tier_at_upload === 'basic'
-                        ? 'Basic tier — feedback will be saved but not visible to client until upgrade.'
+                      {selectedPhoto.tier_at_upload === 'kickstart'
+                        ? 'Kickstart tier — feedback will be saved but not visible to client until upgrade.'
                         : 'Pro/Elite tier — client will be notified when you send feedback.'}
                     </p>
                   </div>

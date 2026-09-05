@@ -3093,8 +3093,8 @@ function DashboardContent({ initialClient, initialMealPlan }) {
 
               <div className="space-y-3 mb-8">
                 {[
-                  { plan: 'Pro', price: '$97', period: '/month', features: ['Monthly check-ins', 'Photo feedback', 'Plan adjustments', 'Unlimited swaps'] },
-                  { plan: 'Elite', price: '$167', period: '/month', features: ['Weekly check-ins', 'Priority support', 'Photo feedback', 'Unlimited swaps'] },
+                  { plan: 'Pro', price: '$127', period: '/month', features: ['Monthly check-ins', 'Photo feedback', 'Plan adjustments', 'Unlimited swaps'] },
+                  { plan: 'Elite', price: '$197', period: '/month', features: ['Weekly check-ins', 'Priority support', 'Photo feedback', 'Unlimited swaps'] },
                 ].map((p, i) => (
                   <div
                     key={i}

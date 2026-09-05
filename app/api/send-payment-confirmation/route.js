@@ -14,7 +14,7 @@ export async function POST(request) {
     }
 
     const planNames = {
-      basic: 'Kickstart Plan',
+      kickstart: 'Kickstart Plan',
       pro: 'Pro',
       elite: 'Elite',
     }
@@ -45,7 +45,7 @@ export async function POST(request) {
                   <li><strong>Right now:</strong> Dane is reviewing your intake information and macro calculations</li>
                   <li><strong>Within 24 hours:</strong> Your personalized meal plan will be generated using YOUR selected foods and approved by Dane</li>
                   <li><strong>Your inbox:</strong> You'll receive a professional email with your complete meal plan, macro targets, and meal swap options</li>
-                  ${planType !== 'basic' ? `<li><strong>Immediately after:</strong> Your ${planType === 'pro' ? 'monthly' : 'weekly'} check-ins with Dane begin</li>` : ''}
+                  ${planType !== 'kickstart' ? `<li><strong>Immediately after:</strong> Your ${planType === 'pro' ? 'monthly' : 'weekly'} check-ins with Dane begin</li>` : ''}
                 </ol>
               </div>
 
@@ -56,7 +56,7 @@ export async function POST(request) {
 
             <div style="text-align: center; border-top: 1px solid #333; padding-top: 20px;">
               <p style="font-size: 12px; color: #666; margin: 5px 0;">
-                BuildABod.co | Personalized Nutrition by Dane Vinson
+                BuildABod.co | Custom Nutrition by Dane Vinson
               </p>
             </div>
           </div>

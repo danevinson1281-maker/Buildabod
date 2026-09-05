@@ -41,9 +41,11 @@ export async function GET(request) {
 
     // ── Fetch all clients ───────────────────────────────────────────────
     const { data: clients, error } = await supabase
-      .from('clients')
-      .select('*')
-      .order('created_at', { ascending: false });
+  .from('clients')
+  .select('*')
+  .eq('client_status', 'active') // ✅ Only fetch active paying clients
+  .order('created_at', { ascending: false });
+
 
     if (error) throw error;
 

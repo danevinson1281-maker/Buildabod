@@ -46,8 +46,8 @@ export default function SuccessContent() {
   }, [sessionId]);
 
   const planTierInfo = {
-    basic: {
-      name: 'Basic',
+    kickstart: {
+      name: 'Kickstart',
       color: '#FFD700',
       features: [
         'Personalized meal plan (custom-generated once)',
@@ -60,7 +60,7 @@ export default function SuccessContent() {
       name: 'Pro',
       color: '#FFD700',
       features: [
-        'Everything in Basic',
+        'Everything in Kickstart',
         'Monthly meal plan regeneration',
         'Monthly macro optimization & review',
         'Monthly check-in via email',
@@ -83,7 +83,7 @@ export default function SuccessContent() {
     },
   };
 
-  const tierInfo = planTierInfo[planType?.toLowerCase()] || planTierInfo.basic;
+  const tierInfo = planTierInfo[planType?.toLowerCase()] || planTierInfo.kickstart;
 
   if (verifying) {
     return (
