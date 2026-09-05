@@ -34,7 +34,7 @@ export default function AdminLogin() {
       localStorage.setItem('adminToken', data.token);
       localStorage.setItem('adminEmail', email);
 
-      router.push('/admin/pending-plans');
+      router.push('/admin/clients');
     } catch (err) {
       setError('An error occurred. Please try again.');
       setLoading(false);
