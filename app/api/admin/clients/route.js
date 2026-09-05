@@ -43,9 +43,10 @@ export async function GET(request) {
     const { data: clients, error } = await supabase
   .from('clients')
   .select('*')
-  .eq('client_status', 'active') // ✅ Only fetch active paying clients
-.eq('is_demo', false) // ✅ Exclude demo clients from admin view
+  .eq('client_status', 'active')
+  .eq('is_demo', false)
   .order('created_at', { ascending: false });
+
 
 
     if (error) throw error;

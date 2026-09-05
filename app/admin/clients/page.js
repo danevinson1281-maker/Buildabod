@@ -187,6 +187,24 @@ export default function AdminClientsPage() {
     const remainingInches = inches % 12
     return feet + "'" + remainingInches + '"'
   }
+  const handleCreateDemoClient = async () => {
+  try {
+    const token = localStorage.getItem('adminToken');
+    const response = await fetch('/api/admin/create-demo-client', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${token}` },
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error);
+
+    alert(`✅ Demo client created!\nEmail: ${data.email}\n\nRefresh to see it in the list!`);
+    fetchClients();
+  } catch (error) {
+    alert(`❌ Error: ${error.message}`);
+  }
+};
+
 
   const handleLogout = () => {
     localStorage.removeItem('adminToken')
