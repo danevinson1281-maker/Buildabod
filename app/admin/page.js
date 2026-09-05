@@ -11,6 +11,26 @@ export default function AdminLogin() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+
+  const handleCreateDemoClient = async () => {
+  try {
+    const token = localStorage.getItem('adminToken');
+    const response = await fetch('/api/admin/create-demo-client', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${token}` },
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error);
+
+    alert(`✅ Demo client created!\nEmail: ${data.email}\n\nRefresh to see it in the list!`);
+    fetchClients();
+  } catch (error) {
+    alert(`❌ Error: ${error.message}`);
+  }
+};
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');

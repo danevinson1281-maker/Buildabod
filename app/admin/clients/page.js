@@ -775,57 +775,79 @@ export default function AdminClientsPage() {
       setFilterSubStatus('all')
     }}
     style={{
+      display: 'flex', alignItems: 'center', gap: '6px',
+      backgroundColor: '#FFD70015', border: '1px solid #FFD700',
+      borderRadius: '999px', padding: '6px 14px',
+      fontSize: '12px', color: '#FFD700', fontWeight: 'bold',
+      cursor: 'pointer',
+      transition: 'all 0.2s',
+      background: 'none',
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.backgroundColor = '#FFD70025';
+      e.currentTarget.style.borderColor = '#FFC107';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.backgroundColor = '#FFD70015';
+      e.currentTarget.style.borderColor = '#FFD700';
+    }}
+  >
+    📸
+    <span style={{
+      backgroundColor: '#ef4444', color: '#fff',
+      fontSize: '10px', fontWeight: 'bold',
+      borderRadius: '999px', padding: '1px 6px',
+    }}>
+      {unreviewedPhotos} new photo{unreviewedPhotos > 1 ? 's' : ''}
+    </span>
+  </button>
+)}
+{/* DEMO CLIENT BUTTON */}
+<button
+  onClick={handleCreateDemoClient}
+  style={{
+    display: 'flex', alignItems: 'center', gap: '6px',
+    backgroundColor: '#9333ea15', border: '1px solid #9333ea',
+    borderRadius: '999px', padding: '8px 16px',
+    fontSize: '12px', color: '#c084fc', fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'all 0.2s',
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.backgroundColor = '#9333ea25';
+    e.currentTarget.style.borderColor = '#a855f7';
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.backgroundColor = '#9333ea15';
+    e.currentTarget.style.borderColor = '#9333ea';
+  }}
+>
+  🎬 Demo Client
+</button>
+<button 
+  onClick={() => {
+    fetchClients()
+    fetchUnreviewedPhotos()
+    referralTabRef.current?.fetchReferrals()
+  }}
+  style={{
+    padding: '8px 14px',
+    backgroundColor: '#4CAF50',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '6px',
+    fontWeight: 'bold',
+    fontSize: '12px',
+    cursor: 'pointer',
+    transition: 'all 0.2s',
+  }}
+  onMouseEnter={(e) => e.target.style.backgroundColor = '#45a049'}
+  onMouseLeave={(e) => e.target.style.backgroundColor = '#4CAF50'}
+>
+  🔄 Refresh
+</button>
+<button onClick={handleLogout} className={styles.logoutBtn}>Logout</button>
 
-                  display: 'flex', alignItems: 'center', gap: '6px',
-                  backgroundColor: '#FFD70015', border: '1px solid #FFD700',
-                  borderRadius: '999px', padding: '6px 14px',
-                  fontSize: '12px', color: '#FFD700', fontWeight: 'bold',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                  background: 'none',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#FFD70025';
-                  e.currentTarget.style.borderColor = '#FFC107';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#FFD70015';
-                  e.currentTarget.style.borderColor = '#FFD700';
-                }}
-              >
-                📸
-                <span style={{
-                  backgroundColor: '#ef4444', color: '#fff',
-                  fontSize: '10px', fontWeight: 'bold',
-                  borderRadius: '999px', padding: '1px 6px',
-                }}>
-                  {unreviewedPhotos} new photo{unreviewedPhotos > 1 ? 's' : ''}
-                </span>
-              </button>
-            )}
-            <button 
-              onClick={() => {
-                fetchClients()
-                fetchUnreviewedPhotos()
-                referralTabRef.current?.fetchReferrals()
-              }}
-              style={{
-                padding: '8px 14px',
-                backgroundColor: '#4CAF50',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '6px',
-                fontWeight: 'bold',
-                fontSize: '12px',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-                           onMouseEnter={(e) => e.target.style.backgroundColor = '#45a049'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = '#4CAF50'}
-            >
-              🔄 Refresh
-            </button>
-            <button onClick={handleLogout} className={styles.logoutBtn}>Logout</button>
           </div>
         </div>
 

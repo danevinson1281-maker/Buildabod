@@ -44,6 +44,7 @@ export async function GET(request) {
   .from('clients')
   .select('*')
   .eq('client_status', 'active') // ✅ Only fetch active paying clients
+.eq('is_demo', false) // ✅ Exclude demo clients from admin view
   .order('created_at', { ascending: false });
 
 
