@@ -44,7 +44,7 @@ export async function GET(request) {
   .from('clients')
   .select('*')
   .eq('client_status', 'active')
-  .eq('is_demo', false)
+  .neq('is_demo', true)
   .order('created_at', { ascending: false });
 
 
