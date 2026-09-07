@@ -322,13 +322,12 @@ async function handleChargeSucceeded(charge) {
     console.log('💳 [CHARGE] ✅ Existing client found:', clientId);
 
     const updateData = {
-  plan_type: plan,
-  payment_status: 'completed',
-  client_status: 'active', // ✅ NOW mark as active
-  updated_at: new Date().toISOString(),
-  payments_made: (existingClient.payments_made || 0) + 1,
-};
-
+      plan_type: plan,
+      payment_status: 'completed',
+      client_status: 'active',
+      updated_at: new Date().toISOString(),
+      payments_made: (existingClient.payments_made || 0) + 1,
+    };
 
     const { error: updateError } = await supabase
       .from('clients')
@@ -370,6 +369,7 @@ async function handleChargeSucceeded(charge) {
       selected_foods: clientData.selectedFoods || [],
       plan_type: plan,
       payment_status: 'completed',
+      client_status: 'active',
       tier: initialTier,
       payments_made: 1,
       rate_locked_until: lockedUntil,
@@ -447,19 +447,18 @@ async function handleSubscriptionCreated(subscription) {
     console.log(`📅 [SUBSCRIPTION] ✅ Existing client found:`, clientId);
 
     const updateData = {
-  subscription_status: 'active',
-  subscription_tier: plan,
-  stripe_subscription_id: id,
-  stripe_customer_id: customer,
-  subscription_started_at: new Date(subscription.created * 1000).toISOString(),
-  subscription_next_billing_at: new Date(subscription.current_period_end * 1000).toISOString(),
-  plan_type: plan,
-  payment_status: 'completed',
-  client_status: 'active', // ✅ NOW mark as active
-  updated_at: new Date().toISOString(),
-  payments_made: isUpgrade ? (existingClient.payments_made || 1) : 1,
-};
-
+      subscription_status: 'active',
+      subscription_tier: plan,
+      stripe_subscription_id: id,
+      stripe_customer_id: customer,
+      subscription_started_at: new Date(subscription.created * 1000).toISOString(),
+      subscription_next_billing_at: new Date(subscription.current_period_end * 1000).toISOString(),
+      plan_type: plan,
+      payment_status: 'completed',
+      client_status: 'active',
+      updated_at: new Date().toISOString(),
+      payments_made: isUpgrade ? (existingClient.payments_made || 1) : 1,
+    };
 
     const { error: updateError } = await supabase
       .from('clients')
@@ -514,6 +513,7 @@ async function handleSubscriptionCreated(subscription) {
       subscription_next_billing_at: new Date(
         subscription.current_period_end * 1000
       ).toISOString(),
+      client_status: 'active',
       tier: initialTier,
       payments_made: 1,
       rate_locked_until: lockedUntil,
@@ -539,6 +539,7 @@ async function handleSubscriptionCreated(subscription) {
 
   console.log('📅 [SUBSCRIPTION] ✅ handleSubscriptionCreated complete');
 }
+
 
 // ════════════════════════════════════════════════════════════════════════════
 // SUBSCRIPTION UPDATED
